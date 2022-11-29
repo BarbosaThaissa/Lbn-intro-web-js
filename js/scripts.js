@@ -1,29 +1,27 @@
 const cursos = [
-  //"HTML e CSS", "JavaScript", "APIs REST"
   {
     curso: "HTML e CSS",
     descricao:
       "Aprenda a criar sites estáticos com HTML e CSS, do básico ao avançado!",
     duracao: "1 mês",
-    valor: 500
+    valor: 500,
   },
   {
     curso: "JavaScript",
     descricao:
       "Aprenda a criar sites dinamicos com JavaScript, do básico ao avançado!",
     duracao: "2 meses",
-    valor: 900
+    valor: 900,
   },
   {
     curso: "APIsRest",
     descricao: "Aprenda APIsRest do básico ao avançado!",
     duracao: "6 meses",
-    valor: 2000
-  }
+    valor: 2000,
+  },
 ];
 
 const turmas = [
-  //"HC1", "JS1", "JS2", "REST1", "REST2"
   {
     turma: "Hipátia",
     curso: "JavaScript",
@@ -31,7 +29,7 @@ const turmas = [
     termino: "30/01/2023",
     numAlunos: 150,
     periodo: "Noturno",
-    concluida: false
+    concluida: false,
   },
   {
     turma: "Sibyla",
@@ -40,7 +38,7 @@ const turmas = [
     termino: "30/12/2022",
     numAlunos: 200,
     periodo: "Integral",
-    concluida: false
+    concluida: false,
   },
   {
     turma: "Curie",
@@ -49,7 +47,7 @@ const turmas = [
     termino: "15/10/2022",
     numAlunos: 180,
     periodo: "Noturno",
-    concluida: true
+    concluida: true,
   },
   {
     turma: "Zhenyi",
@@ -58,7 +56,7 @@ const turmas = [
     termino: "01/01/2023",
     numAlunos: 80,
     periodo: "Integral",
-    concluida: false
+    concluida: false,
   },
   {
     turma: "Clarke",
@@ -67,7 +65,7 @@ const turmas = [
     termino: "04/09/2022",
     numAlunos: 200,
     periodo: "Noturno",
-    concluida: true
+    concluida: true,
   },
   {
     turma: "Blackwell",
@@ -76,7 +74,7 @@ const turmas = [
     termino: "20/06/2022",
     numAlunos: 100,
     periodo: "Integral",
-    concluida: true
+    concluida: true,
   },
   {
     turma: "Elion",
@@ -85,7 +83,7 @@ const turmas = [
     termino: "12/06/2022",
     numAlunos: 200,
     periodo: "Noturno",
-    concluida: true
+    concluida: true,
   },
   {
     turma: "Burnell",
@@ -94,12 +92,11 @@ const turmas = [
     termino: "18/04/2023",
     numAlunos: 90,
     periodo: "Integral",
-    concluida: false
-  }
+    concluida: false,
+  },
 ];
 
 const estudantes = [
-  //"João", "Ana", "Cris"
   {
     estudante: "Chris Evans",
     turma: "Hipátia",
@@ -107,7 +104,7 @@ const estudantes = [
     valor: "900 reais",
     numParcelas: 9,
     desconto: false,
-    vaParcelas: 100
+    vaParcelas: 100,
   },
   {
     estudante: "Halle Berry",
@@ -116,7 +113,7 @@ const estudantes = [
     valor: "2000 reais",
     numParcelas: 4,
     desconto: false,
-    vaParcelas: 500
+    vaParcelas: 500,
   },
   {
     estudante: "Lashana Lynch",
@@ -125,13 +122,12 @@ const estudantes = [
     valor: "500 reais",
     numParcelas: 1,
     desconto: true,
-    vaParcelas: 500
-  }
+    vaParcelas: 500,
+  },
 ];
 
 const parcelarCurso = (parcela) => {
   //Ter 20% para pg avista ou em 2 vezes
-  //Mostrar no console uma frase
 
   let valorTotal = cursos[2].valor;
   let valorParcela = valorTotal / parcela;
@@ -161,7 +157,87 @@ const parcelarCurso = (parcela) => {
   }
 };
 
-console.log(parcelarCurso(2));
-console.log(parcelarCurso(4));
-console.log(parcelarCurso(1));
-console.log(parcelarCurso(5));
+const buscarCurso = (nameCurso, cur) => {
+  //uma busca pelo array de cursos, retornar o objeto referente ao curso
+  let curso;
+
+  for (let i = 0; i < cur.length; i++) {
+    switch (nameCurso) {
+      case "HTML e CSS":
+        curso = cursos[0];
+        break;
+      case "JavaScript":
+        curso = cursos[1];
+        break;
+      case "APIsRest":
+        curso = cursos[2];
+        break;
+      default:
+        return "Desculpe, não encontramos!";
+    }
+  }
+
+  return curso;
+};
+
+const buscarTurma = (nameTurma, tur) => {
+  let turma;
+
+  for (let i = 0; i < tur.length; i++) {
+    switch (nameTurma) {
+      case "Hipátia":
+        turma = turmas[0];
+        break;
+      case "Sibyla":
+        turma = turmas[1];
+        break;
+      case "Curie":
+        turma = turmas[2];
+        break;
+      case "Zheny":
+        turma = turmas[3];
+        break;
+      case "Clarke":
+        turma = turmas[4];
+        break;
+      case "Blackwell":
+        turma = turmas[5];
+        break;
+      case "Elion":
+        turma = turmas[6];
+        break;
+      case "Burnell":
+        turma = turmas[7];
+        break;
+      default:
+        return "Essa turma não existe!!";
+    }
+  }
+
+  return turma;
+};
+
+const buscarEstudante = (nameEstudante, estu) => {
+  let aluno;
+
+  switch (nameEstudante) {
+    case "Chris Evans":
+      aluno = estudantes[0];
+      break;
+    case "Halle Berry":
+      aluno = estudantes[1];
+      break;
+    case "Lashana Lynch":
+      aluno = estudantes[2];
+      break;
+    default:
+      return "Aluno(a) não encontrado!";
+  }
+
+  return aluno;
+};
+
+console.log(buscarCurso("JavaScript", cursos));
+console.log(buscarEstudante("Halle Berry", estudantes));
+console.log(buscarTurma("Sibyla", turmas));
+
