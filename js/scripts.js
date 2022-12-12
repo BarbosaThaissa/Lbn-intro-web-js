@@ -128,63 +128,54 @@ const estudantes = [
 
 const carrinhoCursos = [];
 
-const buscarCurso = (nameCurso, cur) => {
+const buscarCurso = (nameCurso) => {
   //uma busca pelo array de cursos, retornar o objeto referente ao curso
-  let curso;
+  const encCurso = cursos.find((curso) =>
+    curso.curso.toLowerCase().startsWith(nameCurso.toLowerCase())
+  );
 
-  for (let i = 0; i < cur.length; i++) {
-    switch (nameCurso) {
-      case "HTML e CSS":
-        curso = cursos[0];
-        break;
-      case "JavaScript":
-        curso = cursos[1];
-        break;
-      case "APIsRest":
-        curso = cursos[2];
-        break;
-      default:
-        return "Desculpe, não encontramos!";
-    }
+  if (encCurso == undefined) {
+    return "Curso não encontrado! Tente noamente. ";
   }
 
-  return curso;
+  return encCurso;
 };
 
 const addCarrinhoCursos = (nomeCurso) => {
-  let curso = buscarCurso(nomeCurso, cursos);
+  let curso = buscarCurso(nomeCurso);
 
   return carrinhoCursos.push(curso.valor);
 };
 
 const parcelarCurso = (arr, parcela) => {
   //Ter 20% para pg avista ou em 2 vezes
-  let resultado;
+  let resultado = 0;
+  let desconto = 0;
 
-  let total1 = arr[0];
-  let valor2 = arr[0] + arr[1];
-  let valor3 = arr[0] + arr[1] + arr[2];
-  let desconto2cur = (valor2 * 10) / 100;
-  let desconto3cur = (valor3 * 15) / 100;
+  if (arr.length > 0) {
+    switch (arr.length) {
+      case 3:
+        desconto = 0.15;
+        break;
+      case 2:
+        desconto = 0.1;
+        break;
+      default:
+        desconto = 0;
+        break;
+    }
 
-  let total2 = valor2 - desconto2cur;
-  let total3 = valor3 - desconto3cur;
+    for (const valor of arr) {
+      resultado = resultado + valor;
+    }
 
-  if (arr.length === 1) {
-    resultado = total1;
-  } else if (arr.length === 2) {
-    resultado = total2;
-  } else if (arr.length === 3) {
-    resultado = total3;
-  } else {
-    resultado = `Não foi possivel calcular`;
+    resultado = resultado - resultado * desconto;
   }
 
   let valorParcela = resultado / parcela;
 
   if (parcela === 2 || parcela === 1) {
-    let desconto = (resultado * 20) / 100;
-    resultado = resultado - desconto;
+    resultado = resultado - (resultado * 20) / 100;
     valorParcela = resultado / parcela;
 
     return `O valor do pagamento é de R$ ${resultado}. Em ${parcela}x de ${valorParcela.toFixed(
@@ -199,99 +190,76 @@ const parcelarCurso = (arr, parcela) => {
   }
 };
 
-const buscarTurma = (nameTurma, tur) => {
-  let turma;
+const buscarTurma = (nameTurma) => {
+  const encTurma = turmas.find((turma) =>
+    turma.turma.toLowerCase().startsWith(nameTurma.toLowerCase())
+  );
 
-  for (let i = 0; i < tur.length; i++) {
-    switch (nameTurma) {
-      case "Hipátia":
-        turma = turmas[0];
-        break;
-      case "Sibyla":
-        turma = turmas[1];
-        break;
-      case "Curie":
-        turma = turmas[2];
-        break;
-      case "Zheny":
-        turma = turmas[3];
-        break;
-      case "Clarke":
-        turma = turmas[4];
-        break;
-      case "Blackwell":
-        turma = turmas[5];
-        break;
-      case "Elion":
-        turma = turmas[6];
-        break;
-      case "Burnell":
-        turma = turmas[7];
-        break;
-      default:
-        return "Turma não encontrada!";
-    }
+  if (encTurma == undefined) {
+    return "Turma não encontrada!";
   }
 
-  return turma;
+  return encTurma;
 };
 
-const buscarEstudante = (nameEstudante, aluno) => {
-  switch (nameEstudante) {
-    case "Chris Evans":
-      aluno = estudantes[0];
-      break;
-    case "Halle Berry":
-      aluno = estudantes[1];
-      break;
-    case "Lashana Lynch":
-      aluno = estudantes[2];
-      break;
-    default:
-      return "Aluno(a) não encontrado!";
+const buscarEstudante = (nameEstudante) => {
+  const encAluno = estudantes.find((aluno) =>
+    aluno.estudante.toLowerCase().includes(nameEstudante.toLowerCase())
+  );
+
+  if (encAluno == undefined) {
+    return "Aluno(a) não encontrado!";
   }
 
-  return aluno;
+  return encAluno;
 };
 
 const matricular = (nome, curso, turma, nParcelas) => {
   //inseri um aluno no array de estudantes.
-  estudantes.push({
+  let valorCurso = buscarCurso(curso);
+  let valorTotal = 0;
+  let valorParcela = 0;
+  let desconto = false;
+
+  if (nParcelas > 0 && nParcelas <= 2) {
+    valorTotal = valorCurso.valor - valorCurso.valor * 0.2;
+    valorParcela = valorTotal / nParcelas;
+    desconto = true;
+  } else {
+    valorTotal = valorCurso.valor;
+    valorParcela = valorTotal / nParcelas;
+  }
+
+  const noAluno = {
     estudante: nome,
     turma: turma,
     curso: curso,
+    valor: valorCurso.valor,
     numParcelas: nParcelas,
-  });
+    desconto: desconto,
+    vaParcelas: valorParcela,
+  };
+
+  estudantes.push(noAluno);
 
   console.log(estudantes);
 
-  console.log(`Aluno Matriculado
-  Nome: ${nome}
-  Curso: ${curso}
-  Turma: ${turma}`);
+  return `Aluno Matriculado \nNome: ${nome} \nCurso: ${curso} \nTurma: ${turma}`;
 };
 
 const relatorioEstudante = (nomeAluno) => {
-  let reAluno = buscarEstudante(nomeAluno, estudantes);
+  let reAluno = buscarEstudante(nomeAluno);
 
-  return `Aluno: ${reAluno.estudante}
-  Turma: ${reAluno.turma}
-  Curso: ${reAluno.curso}
-  Valor Total: R$ ${reAluno.valor}
-  Valor Parcela: R$ ${reAluno.vaParcelas}
-  Nº Parcelas: ${reAluno.numParcelas}`;
+  return `Aluno: ${reAluno.estudante} \nTurma: ${reAluno.turma} \nCurso: ${reAluno.curso} \nValor Total: R$ ${reAluno.valor} \nValor Parcela: R$ ${reAluno.vaParcelas} \nNº Parcelas: ${reAluno.numParcelas}`;
 };
 
-matricular("Calvin Klein", "JavaScript", "Clarke", 3);
-addCarrinhoCursos("JavaScript");
-addCarrinhoCursos("APIsRest");
-console.log(estudantes);
-
-console.log(relatorioEstudante("Chris Evans"));
-
+addCarrinhoCursos("jav");
+addCarrinhoCursos("api");
 console.log(carrinhoCursos);
+
+console.log(matricular("Calvin Klein", "JavaScript", "Clarke", 3));
+console.log(relatorioEstudante("ca"));
 console.log(parcelarCurso(carrinhoCursos, 2));
-console.log(buscarCurso("JavaScript", cursos));
-console.log(buscarEstudante("Halle Berry", estudantes));
-console.log(buscarTurma("Curie", turmas));
-console.log(buscarTurma("E", turmas));
+console.log(buscarCurso("ht"));
+console.log(buscarEstudante("berry"));
+console.log(buscarTurma("e"));
