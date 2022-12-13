@@ -4,3 +4,7 @@ h1 {
 h2 {
   font-family: "Open Sans";
 }
+
+body {
+  background: url(../assets);
+}
