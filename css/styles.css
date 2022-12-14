@@ -1,6 +1,174 @@
-h1 {
+/* root */
+:root {
+  --black: #000;
+  --white: #fff;
+  --yellow: #f6c34a;
+  --green-act: rgb(104, 230, 132);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans";
+  text-decoration: none;
+  list-style: none;
+}
+
+.font-poppins {
   font-family: "Poppins";
 }
-h2 {
-  font-family: "Open Sans";
+
+.active {
+  color: var(--green-act);
+  text-decoration: underline;
+}
+
+a:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.03);
+  text-decoration: underline;
+  color: var(--green-act);
+}
+/* hearder */
+.header {
+  width: 100%;
+  height: 7vw;
+  background-color: var(--white);
+  display: flex;
+  align-items: center;
+  position: fixed;
+  padding: 5px;
+  justify-content: space-between;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4.6rem;
+  text-align: center;
+  margin-right: 10rem;
+}
+
+.nav-links > li > a {
+  font-style: normal;
+  font-weight: 700;
+  line-height: 2rem;
+  font-size: 1rem;
+}
+
+.header > a {
+  width: 15%;
+  align-items: center;
+  margin-left: 10rem;
+}
+
+#logo {
+  width: 100%;
+  height: 100%;
+}
+/* wpp */
+.wpp-logo {
+  position: fixed;
+  width: 4.4%;
+  left: 90%;
+  right: 0;
+  top: 85%;
+  bottom: 0;
+  float: right;
+  background-color: var(--yellow);
+}
+
+body {
+  background-color: var(--yellow);
+}
+/* index */
+
+/* cursos */
+#cursos {
+  padding-top: 2rem;
+}
+
+.cards-curso {
+  height: 75vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 30vh;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--yellow);
+  padding: 7% 10%;
+  gap: 3rem;
+}
+
+.card-curso {
+  background-color: var(--white);
+  height: 33vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+.h2s-curso {
+  margin-bottom: 2rem;
+}
+/* adm */
+/* contato */
+/* footer */
+.footer {
+  background-color: var(--yellow);
+  width: 100%;
+  height: 40vw;
+}
+
+.footer-cont {
+  width: 99%;
+  height: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 3.3rem;
+  padding-bottom: 4rem;
+}
+
+.logo-footer > img {
+  width: 10%;
+  margin: 1rem auto 1rem 7rem;
+}
+
+.endereco {
+  height: 100%;
+}
+
+iframe > #map {
+  width: 100%;
+  height: auto;
+}
+
+.titles-footer {
+  margin-bottom: 2rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.uls-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 0.8rem;
+}
+
+.redes-link {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 1.25rem;
 }
