@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LabEscola</title>
+    <link rel="stylesheet" href="../css/styles.css">
     <!-- Favicon -->
-    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="../assets/favicon.ico"
+      type="image/x-icon"
+    />
     <!-- Fontes Open sans-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,37 +28,132 @@
     />
 
     <script src="../js/scripts.js" defer></script>
-</head>
-<body>
-    <header>
-        <a href="../index.html">
-            <img src="../assets/logo.svg" alt="LabEscola logo" id="logo" />
-          </a>
-          <nav>
-            <ul>
-              <li><a href="../index.html">Home</a></li>
-              <li><a href="./cursos.html">Cursos</a></li>
-              <li><a href="./contato.html">Contato</a></li>
-              <li><a href="./adm.html">Area ADM</a></li>
-            </ul>
-          </nav>
+  </head>
+  <body>
+    <header class="header">
+      <a href="../index.html">
+        <img src="../assets/logo.svg" alt="LabEscola logo" id="logo" />
+      </a>
+      <nav class="menu-header">
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./cursos.html" class="active">Cursos</a></li>
+          <li><a href="./contato.html">Contato</a></li>
+          <li><a href="./adm.html">Area ADM</a></li>
+        </ul>
+      </nav>
     </header>
     <main>
-        <section></section>
-        <section></section>
+      <div id="cursos">
+      <section class="cards-curso">
+        <article class="card-curso">
+          <h2 class="h2s-curso font-poppins">HTML e CSS</h2>
+          <p>
+            Maecenas ullamcorper, metus eu mattis tristique, ante metus ultrices
+            ex, vel auctor tortor dolor nec dui. Nullam vestibulum eleifend
+            ipsum elementum accumsan. Fusce tempus finibus odio a faucibus.
+            Etiam justo ante, viverra ut iaculis vel, vulputate sed massa.
+            Quisque tincidunt ultricies enim, ac
+          </p>
+        </article>
+        <article class="card-curso">
+          <h2 class="h2s-curso font-poppins">JavaScript</h2>
+          <p>
+            Maecenas ullamcorper, metus eu mattis tristique, ante metus ultrices
+            ex, vel auctor tortor dolor nec dui. Nullam vestibulum eleifend
+            ipsum elementum accumsan. Fusce tempus finibus odio a faucibus.
+            Etiam justo ante, viverra ut iaculis vel, vulputate sed massa.
+            Quisque tincidunt ultricies enim, ac
+          </p>
+        </article>
+        <article class="card-curso">
+          <h2 class="h2s-curso font-poppins">APIs e Rest</h2>
+          <p>
+            Maecenas ullamcorper, metus eu mattis tristique, ante metus ultrices
+            ex, vel auctor tortor dolor nec dui. Nullam vestibulum eleifend
+            ipsum elementum accumsan. Fusce tempus finibus odio a faucibus.
+            Etiam justo ante, viverra ut iaculis vel, vulputate sed massa.
+            Quisque tincidunt ultricies enim, ac
+          </p>
+        </article>
+        <a href="malito:webmaster@gmail.com" class="btn-cards"
+          >Quero fazer parte!</a
+        >
+      </section>
+    </div>
+      <section class="detalhes-cards">
+        <article class="card-deta">
+          <h2 class="h2s-curso font-poppins">HTML e CSS</h2>
+          <div class="modulo">
+            <h3 class="h3-modulo font-poppins">Módulo 1</h3>
+            <p>Suspendisse condimentum</p>
+            <p>Suspendisse condimentum</p>
+            <p>Suspendisse condimentum</p>
+          </div>
+          <div class="modulo">
+            <h3 class="h3-modulo font-poppins">Módulo 2</h3>
+            <p>Suspendisse condimentum</p>
+            <p>Suspendisse condimentum</p>
+            <p>Suspendisse condimentum</p>
+          </div>
+        </article>
+        <article class="card-deta">
+          <h2 class="h2s-curso font-poppins">JavaScript</h2>
+          <div class="modulo">
+            <h3 class="h3-modulo font-poppins">Módulo 1</h3>
+            <p>Suspendisse condimentum</p>
+            <p>Suspendisse condimentum</p>
+            <p>Suspendisse condimentum</p>
+          </div>
+          <div class="modulo">
+            <h3 class="h3-modulo font-poppins">Módulo 2</h3>
+            <p>Suspendisse condimentum</p>
+            <p>Suspendisse condimentum</p>
+            <p>Suspendisse condimentum</p>
+          </div>
+        </article>
+        <article class="card-deta">
+          <h2 class="h2s-curso font-poppins">APIs e Rest</h2>
+          <div class="modulo">
+            <h3 class="h3-modulo font-poppins">Módulo 1</h3>
+            <p>Suspendisse condimentum</p>
+            <p>Suspendisse condimentum</p>
+            <p>Suspendisse condimentum</p>
+          </div>
+          <div class="modulo">
+            <h3 class="h3-modulo font-poppins">Módulo 2</h3>
+            <p>Suspendisse condimentum</p>
+            <p>Suspendisse condimentum</p>
+            <p>Suspendisse condimentum</p>
+          </div>
+        </article>
+      </section>
     </main>
     <footer class="footer">
       <a href="#" class="logo-footer"
-        ><img src="../assets/logo.svg" alt="logo"
+        ><img src="../assets/logo-foter.svg" alt="logo"
       /></a>
       <div class="footer-cont">
         <div class="endereco">
-          <h3 class="titles-footer">Endereço</h3>
-          <img src="../assets/map.svg" alt="mapa" class="img-mapa" />
-          <p class="end-mapa">R. Pais Leme, 215. CEP 05424-150 - Pinheiros</p>
+          <h3 class="titles-footer font-poppins">Endereço</h3>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.9964142000726!2d-46.7006908845073!3d-23.568572267744816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce57a7c7ace4c3%3A0x586759cab9b5c95a!2sR.%20Pais%20Leme%2C%20215%20-%20Pinheiros%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2005424-150!5e0!3m2!1spt-BR!2sbr!4v1670976360148!5m2!1spt-BR!2sbr"
+            width="400"
+            height="300"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            id="map"
+          ></iframe>
+          <p class="end-mapa">
+            <a href="https://goo.gl/maps/58xLoEUnZtMPfRgS6" target="_blank"
+              >R. Pais Leme, 215 - Pinheiros, São Paulo - SP, 05424-150</a
+            >
+          </p>
         </div>
         <div class="links-footer">
-          <h3 class="titles-footer">Links</h3>
+          <h3 class="titles-footer font-poppins">Links</h3>
           <ul class="uls-footer">
             <li><a href="../index.html">Home</a></li>
             <li><a href="cursos.html"></a>Cursos</li>
@@ -65,7 +165,7 @@
           </ul>
         </div>
         <div class="redes-so">
-          <h3 class="titles-footer">Resdes Socias</h3>
+          <h3 class="titles-footer font-poppins">Resdes Socias</h3>
           <ul class="redes-link">
             <li><img src="../assets/twitter.svg" alt="twitter" /></li>
             <li><img src="../assets/linked.svg" alt="linkd" /></li>
@@ -74,7 +174,7 @@
           </ul>
         </div>
         <div class="area-rest">
-          <h3 class="titles-footer">Área restrita</h3>
+          <h3 class="titles-footer font-poppins">Área restrita</h3>
           <ul class="uls-footer">
             <li><a href="#"></a>Área administrativa</li>
             <li><a href="#"></a>Espaço do aluno</li>
@@ -82,5 +182,12 @@
         </div>
       </div>
     </footer>
-</body>
+    <a
+      href="https://www.whatsapp.com/?lang=pt_br"
+      target="_blank"
+      class="wpp-logo"
+    >
+      <img src="../assets/wpp.svg" alt="logo wpp" />
+    </a>
+  </body>
 </html>
