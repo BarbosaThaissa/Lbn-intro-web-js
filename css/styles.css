@@ -33,11 +33,12 @@ a:hover {
 /* hearder */
 .header {
   width: 100%;
-  height: 7vw;
+  height: 10vh;
   background-color: var(--white);
   display: flex;
   align-items: center;
-  position: fixed;
+  position: sticky;
+  top: 0;
   padding: 5px;
   justify-content: space-between;
 }
@@ -77,53 +78,347 @@ a:hover {
   top: 85%;
   bottom: 0;
   float: right;
-  background-color: var(--yellow);
+  background-color: transparent;
 }
 
 body {
   background-color: var(--yellow);
 }
 /* index */
+.hero-page {
+  height: 66vh;
+  background: var(--yellow) url(../assets/bg-hero.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.hero-texts {
+  text-align: center;
+}
+
+.hero-texts > h1 {
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+.hero-texts > p {
+  font-size: 1.5rem;
+}
+
+.btn-hero {
+  background-color: var(--black);
+  color: var(--white);
+  height: 7vh;
+  width: 30vw;
+  text-align: center;
+  border-radius: 10px;
+  padding-top: 1.1rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.btn-hero:hover {
+  background-color: var(--green-act);
+  color: var(--white);
+}
+
+.about {
+  background-color: var(--black);
+  color: var(--white);
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.aside-about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  width: 70%;
+  height: 80vh;
+}
+
+.title-about {
+  font-size: 1.7rem;
+}
+
+.depoimen {
+  background-color: var(--black);
+  display: flex;
+  align-items: center;
+  color: var(--white);
+  flex-direction: column;
+  height: 70vh;
+  padding: 1.3rem;
+}
+
+.depoimen > h2 {
+  font-size: 1.7rem;
+}
+
+.cards-depoi {
+  display: flex;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding: 0 2rem;
+}
+
+.card-depoi {
+  background-color: var(--white);
+  color: var(--black);
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  height: 33vh;
+  width: 80%;
+  border-radius: 10px;
+}
+
+.card-depoi > img {
+  height: 10vh;
+}
 
 /* cursos */
-#cursos {
-  padding-top: 2rem;
+.section-cards-curso {
+  width: 100%;
+  height: 66vh;
+  align-items: center;
 }
 
 .cards-curso {
-  height: 75vh;
+  height: 80%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr 30vh;
   justify-content: center;
   align-items: center;
   background-color: var(--yellow);
-  padding: 7% 10%;
+  padding: 6% 5%;
   gap: 3rem;
 }
 
 .card-curso {
   background-color: var(--white);
-  height: 33vh;
+  height: 35vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  padding: 1.5rem;
+  padding: 1rem;
 }
 
 .h2s-curso {
   margin-bottom: 2rem;
 }
+
+.btn-cards {
+  background-color: var(--black);
+  color: var(--white);
+  text-align: center;
+  padding-top: 1.1rem;
+  height: 7vh;
+  width: 30vw;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.btn-cards:hover {
+  background-color: var(--green-act);
+  color: var(--white);
+}
+
+.detalhes-cards {
+  width: 100%;
+  height: 85vh;
+  background-color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deta {
+  height: 75%;
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+
+.card-deta {
+  background-color: var(--white);
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  border-radius: 10px;
+  padding: 2rem;
+  align-items: center;
+}
 /* adm */
+.main-adm {
+  display: flex;
+  width: 100%;
+  height: 80vh;
+}
+
+#nabar-adm {
+  background-color: var(--black);
+  color: var(--white);
+  width: 17vw;
+  padding-top: 2rem;
+}
+
+.ul-id-nabar {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 2rem;
+  font-weight: bold;
+}
+
+.a-adm-nav {
+  color: var(--white);
+}
+
+.area-adm {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  width: 83vw;
+}
+
+.busca-adm {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.busca-adm > button {
+  background-color: var(--black);
+  color: var(--white);
+  font-weight: bold;
+  width: 80px;
+  border-radius: 3px;
+  border: none;
+  height: 3.1vh;
+}
+
+.busca-adm > button:hover {
+  background-color: var(--green-act);
+  cursor: pointer;
+}
+
+.busca-adm > input {
+  height: 3.1vh;
+  border: none;
+  width: 20vw;
+  padding-left: 1rem;
+}
+
+.cards-turmas {
+  display: grid;
+  grid-template-columns: repeat(4, 2fr);
+  gap: 1rem;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.card-turma {
+  background-color: var(--white);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 25vh;
+  width: 95%;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.card-turma > p {
+  padding-left: 1rem;
+}
+
+.h4-turmas {
+  text-align: center;
+}
+
+.span-turma {
+  font-weight: bold;
+}
+
 /* contato */
+.contato-sec {
+  background-color: var(--black);
+  height: 65vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-con {
+  background-color: var(--white);
+  padding: 3rem;
+  width: 30%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-con > h4 {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.form-con > input {
+  font-weight: bold;
+}
+
+.btn-form {
+  background-color: var(--yellow);
+  color: var(--black);
+  font-weight: bold;
+  height: 5vh;
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+}
+
+.btn-form:hover {
+  background-color: var(--black);
+  color: var(--yellow);
+  cursor: pointer;
+  -webkit-transform: scale(1.03);
+}
+
 /* footer */
 .footer {
   background-color: var(--yellow);
   width: 100%;
-  height: 40vw;
+  height: 38vw;
+  padding-bottom: 1rem;
+  border-top: 1px solid black;
 }
 
 .footer-cont {
