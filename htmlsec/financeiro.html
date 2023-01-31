@@ -57,7 +57,7 @@
           </li>
         </ul>
       </nav>
-      <section class="financeiro-sec" id="financeiro-sec">
+      <section class="financeiro-sec">
         <h3 class="font-poppins">Financeiro</h3>
         <label for="curso" class="span-turma font-poppins">Curso</label>
         <input
@@ -66,24 +66,23 @@
           name="curso"
           placeholder="Nome do curso..."
         />
-        <button class="btn-adicionar" id="btn-outro-curso">
-          adicionar outro curso
-        </button>
+        <button class="btn-adicionar" onclick="addCarrinhoCursos()">adicionar</button>
         <label for="n-parcelas" class="span-turma font-poppins"
           >Número de parcelas</label
         >
         <input
           type="number"
+          min="1"
+          max="13"
           id="n-parcelas"
           name="parcelas"
           placeholder="Quantas parcelas?"
         />
-        <button class="btn-adm-pages" id="btn-financeiro">Ver valor</button>
-
-        <h4>Valor</h4>
-        <p>Desconto de 20%. Parcelas de 2x de R$1880.00</p>
+        <button class="btn-adm-pages" onclick="parcelarCurso()">Ver valor</button>
+        <div id="financeiro-sec">
+        </div>
       </section>
-      <section class="relatorio" id="relatorio-sec">
+      <section class="relatorio">
         <h3 class="font-poppins">Relatório Aluno(a)</h3>
         <label for="name" class="span-turma font-poppins">Nome:</label>
         <input
@@ -92,14 +91,11 @@
           name="name"
           placeholder="Digite o nome do aluno(a)..."
         />
-        <button class="btn-adm-pages">Buscar</button>
+        <button class="btn-adm-pages" onclick="relatorioEstudante()">
+          Buscar
+        </button>
 
-        <p><span class="span-turma">Aluno:</span> Chris Evans</p>
-        <p><span class="span-turma">Turma:</span> Hipátia</p>
-        <p><span class="span-turma">Curso:</span> Javascript</p>
-        <p><span class="span-turma">Valor total:</span> R$900</p>
-        <p><span class="span-turma">Valor parcela:</span> R$100</p>
-        <p><span class="span-turma">N.º parcelas:</span> 9</p>
+        <div id="relatorio-sec"></div>
       </section>
     </main>
     <footer class="footer">

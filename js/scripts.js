@@ -126,7 +126,7 @@ const estudantes = [
   },
 ];
 
-const carrinhoCursos = [];
+let carrinhoCursos = [];
 
 const buscarCurso = (nameCurso) => {
   //uma busca pelo array de cursos, retornar o objeto referente ao curso
@@ -141,19 +141,24 @@ const buscarCurso = (nameCurso) => {
   return encCurso;
 };
 
-const addCarrinhoCursos = (nomeCurso) => {
-  let curso = buscarCurso(nomeCurso);
+const addCarrinhoCursos = () => {
+  const inputCurso = document.getElementById("curso").value;
+  let curso = buscarCurso(inputCurso);
+
+  document.getElementById("financeiro-sec").innerHTML += `${curso.curso} `;
+  document.getElementById("curso").value = "";
 
   return carrinhoCursos.push(curso.valor);
 };
 
-const parcelarCurso = (arr, parcela) => {
-  //Ter 20% para pg avista ou em 2 vezes
+const parcelarCurso = () => {
+  const inputParcela = Number(document.getElementById("n-parcelas").value);
+
   let resultado = 0;
   let desconto = 0;
 
-  if (arr.length > 0) {
-    switch (arr.length) {
+  if (carrinhoCursos.length > 0) {
+    switch (carrinhoCursos.length) {
       case 3:
         desconto = 0.15;
         break;
@@ -165,46 +170,49 @@ const parcelarCurso = (arr, parcela) => {
         break;
     }
 
-    for (const valor of arr) {
+    for (const valor of carrinhoCursos) {
       resultado = resultado + valor;
     }
 
     resultado = resultado - resultado * desconto;
   }
 
-  let valorParcela = resultado / parcela;
+  let valorParcela = resultado / inputParcela;
 
-  if (parcela === 2 || parcela === 1) {
+  if (inputParcela === 2 || inputParcela === 1) {
     resultado = resultado - (resultado * 20) / 100;
-    valorParcela = resultado / parcela;
+    valorParcela = resultado / inputParcela;
 
-    return `O valor do pagamento é de R$ ${resultado}. Em ${parcela}x de ${valorParcela.toFixed(
+    document.getElementById("financeiro-sec").innerHTML = `<h4>Valor</h4>
+    <p>O valor do pagamento é de R$ ${resultado}. Em ${inputParcela}x de ${valorParcela.toFixed(
       2
-    )} reais. Foi concedido um desconto de 20%.`;
-  } else if (parcela >= 3 && parcela <= 12) {
-    return `O valor do pagamento é de R$ ${resultado}. Em ${parcela}x de ${valorParcela.toFixed(
+    )} reais. Foi concedido um desconto de 20%.</p>`;
+  } else if (inputParcela >= 3 && inputParcela <= 12) {
+    document.getElementById("financeiro-sec").innerHTML = `<h4>Valor</h4>
+    <p>O valor do pagamento é de R$ ${resultado}. Em ${inputParcela}x de ${valorParcela.toFixed(
       2
-    )} reais.`;
+    )} reais.</p>`;
   } else {
-    return "Desculpe, não foi possível calcular o valor! Por favor tente um novamente";
+    document.getElementById("financeiro-sec").innerHTML =
+      "<p>Desculpe, não foi possível calcular o valor! Por favor tente um novamente<p>";
   }
+
+  carrinhoCursos = [];
 };
 
-const buscarTurma = (nameTurma) => {
-  const encTurma = turmas.find((turma) =>
-    turma.turma.toLowerCase().startsWith(nameTurma.toLowerCase())
+const buscarTurma = () => {
+  const inputTurma = document.getElementById("btn-busca").value.toLowerCase();
+
+  const encTurma = turmas.filter((turma) =>
+    turma.turma.toLowerCase().startsWith(inputTurma.toLowerCase())
   );
 
-  if (encTurma == undefined) {
-    return "Turma não encontrada!";
-  }
-
-  return encTurma;
+  return encTurma.length > 0 ? gerarCard(encTurma) : gerarCard(turmas);
 };
 
 const buscarEstudante = (nameEstudante) => {
   const encAluno = estudantes.find((aluno) =>
-    aluno.estudante.toLowerCase().includes(nameEstudante.toLowerCase())
+    aluno.estudante.toLowerCase().startsWith(nameEstudante.toLowerCase())
   );
 
   if (encAluno == undefined) {
@@ -214,52 +222,83 @@ const buscarEstudante = (nameEstudante) => {
   return encAluno;
 };
 
-const matricular = (nome, curso, turma, nParcelas) => {
-  //inseri um aluno no array de estudantes.
-  let valorCurso = buscarCurso(curso);
+const matricular = () => {
+  const inputNome = document.getElementById("name").value;
+  const inputCurso = document.getElementById("curso").value;
+  const inputTurma = document.getElementById("turma").value;
+  const inputParcelas = Number(document.getElementById("parcelas").value);
+
+  let valorCurso = buscarCurso(inputCurso);
   let valorTotal = 0;
   let valorParcela = 0;
   let desconto = false;
 
-  if (nParcelas > 0 && nParcelas <= 2) {
+  if (inputParcelas > 0 && inputParcelas <= 2) {
     valorTotal = valorCurso.valor - valorCurso.valor * 0.2;
-    valorParcela = valorTotal / nParcelas;
+    valorParcela = valorTotal / inputParcelas;
     desconto = true;
   } else {
     valorTotal = valorCurso.valor;
-    valorParcela = valorTotal / nParcelas;
+    valorParcela = valorTotal / inputParcelas;
   }
 
   const noAluno = {
-    estudante: nome,
-    turma: turma,
-    curso: curso,
+    estudante: inputNome,
+    turma: inputTurma,
+    curso: valorCurso.curso,
     valor: valorCurso.valor,
-    numParcelas: nParcelas,
+    numParcelas: inputParcelas,
     desconto: desconto,
     vaParcelas: valorParcela,
   };
 
   estudantes.push(noAluno);
 
-  console.log(estudantes);
+  document.getElementById("aluno-matri").innerHTML = `<h3 class="font-poppins">
+  Aluno(a) matrículado
+  <img src="../assets/certo.svg" alt="certo" class="certo" />
+</h3>
+<p><span class="span-turma">Aluno(a) Matriculado</span></p>
+<p><span class="span-turma">Nome:</span> ${inputNome}</p>
+<p><span class="span-turma">Curso:</span> ${valorCurso.curso}</p>
+<p><span class="span-turma">Turma:</span> ${inputTurma}</p>`;
 
-  return `Aluno Matriculado \nNome: ${nome} \nCurso: ${curso} \nTurma: ${turma}`;
+  document.getElementById("name").value = "";
+  document.getElementById("curso").value = "";
+  document.getElementById("turma").value = "";
+  document.getElementById("parcelas").value = "";
 };
 
-const relatorioEstudante = (nomeAluno) => {
-  let reAluno = buscarEstudante(nomeAluno);
+const relatorioEstudante = () => {
+  const inputName = document.getElementById("name").value.toLowerCase();
 
-  return `Aluno: ${reAluno.estudante} \nTurma: ${reAluno.turma} \nCurso: ${reAluno.curso} \nValor Total: R$ ${reAluno.valor} \nValor Parcela: R$ ${reAluno.vaParcelas} \nNº Parcelas: ${reAluno.numParcelas}`;
+  let reAluno = buscarEstudante(inputName);
+
+  document.getElementById(
+    "relatorio-sec"
+  ).innerHTML = `<p><span class="span-turma">Aluno:</span> ${reAluno.estudante}</p>
+  <p><span class="span-turma">Turma:</span> ${reAluno.turma}</p>
+  <p><span class="span-turma">Curso:</span> ${reAluno.curso}</p>
+  <p><span class="span-turma">Valor total:</span> R$${reAluno.valor}</p>
+  <p><span class="span-turma">Valor parcela:</span> R$${reAluno.vaParcelas}</p>
+  <p><span class="span-turma">N.º parcelas:</span> ${reAluno.numParcelas}</p>`;
+
+  document.getElementById("name").value = "";
 };
 
-addCarrinhoCursos("jav");
-addCarrinhoCursos("api");
-console.log(carrinhoCursos);
+const gerarCard = (cardTurma) => {
+  const cards = cardTurma.map((cardT) => {
+    return `<div class="card-turma">
+    <h4 class="h4-turmas font-poppins"> ${cardT.turma}</h4>
+    <p><span class="span-turma">Curso:</span> ${cardT.curso}</p>
+    <p><span class="span-turma">Início:</span> ${cardT.inicio}</p>
+    <p><span class="span-turma">Termino:</span> ${cardT.termino}</p>
+    <p><span class="span-turma">Número de alunos:</span> ${cardT.numAlunos}</p>
+    <p><span class="span-turma">Período:</span> ${cardT.periodo}</p>
+    <p><span class="span-turma">Concluído:</span> ${cardT.concluida}</p>
+  </div>`;
+  });
 
-console.log(matricular("Calvin Klein", "JavaScript", "Clarke", 3));
-console.log(relatorioEstudante("ca"));
-console.log(parcelarCurso(carrinhoCursos, 2));
-console.log(buscarCurso("ht"));
-console.log(buscarEstudante("berry"));
-console.log(buscarTurma("e"));
+  document.getElementById("cards-turmas").innerHTML = cards.join("");
+  document.getElementById("btn-busca").value = "";
+};

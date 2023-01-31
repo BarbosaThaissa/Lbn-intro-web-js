@@ -80,27 +80,20 @@
           name="turma"
           placeholder="Digite sua turma..."
         />
-        <label for="parcelas" class="span-turma font-poppins">Número de parcelas:</label>
+        <label for="parcelas" class="span-turma font-poppins"
+          >Número de parcelas:</label
+        >
         <input
           type="number"
           id="parcelas"
           name="parcelas"
           placeholder="Quantas parcelas?"
         />
-        <button class="btn-adm-pages" id="btn-matricula">
+        <button class="btn-adm-pages" id="btn-matricula" onclick="matricular()">
           Matrícular aluno(a)
         </button>
       </section>
-      <section class="aluno-matri" id="aluno-matri">
-        <h3 class="font-poppins">
-          Aluno(a) matrículado
-          <img src="../assets/certo.svg" alt="certo" class="certo" />
-        </h3>
-        <p><span class="span-turma">Aluno(a) Matriculado</span></p>
-        <p><span class="span-turma">Nome:</span> Calvin Klein</p>
-        <p><span class="span-turma">Curso:</span> Javascript</p>
-        <p><span class="span-turma">Turma:</span> Clarke</p>
-      </section>
+      <section class="aluno-matri" id="aluno-matri"></section>
     </main>
     <footer class="footer">
       <a href="#" class="logo-footer"

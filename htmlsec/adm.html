@@ -57,87 +57,14 @@
       </nav>
       <section class="area-adm">
         <div class="busca-adm">
-          <input type="text" placeholder="Digite o nome da turma..." /><button
+          <input
+            type="text"
             id="btn-busca"
-          >
-            Buscar
-          </button>
+            placeholder="Digite o nome da turma..."
+          /><button onclick="buscarTurma()">Buscar</button>
         </div>
         <br />
-        <article class="cards-turmas">
-          <div class="card-turma">
-            <h4 class="h4-turmas font-poppins">Hipátia</h4>
-            <p><span class="span-turma">Curso:</span>Javascript</p>
-            <p><span class="span-turma">Início:</span>30/11/2022</p>
-            <p><span class="span-turma">Termino:</span>30/01/2023</p>
-            <p><span class="span-turma">Número de alunos:</span>150</p>
-            <p><span class="span-turma">Período:</span>Noturno</p>
-            <p><span class="span-turma">Concluído:</span>Não</p>
-          </div>
-          <div class="card-turma">
-            <h4 class="h4-turmas font-poppins">Sibyla</h4>
-            <p><span class="span-turma">Curso:</span>Javascript</p>
-            <p><span class="span-turma">Início:</span>30/10/2022</p>
-            <p><span class="span-turma">Termino:</span>30/12/2022</p>
-            <p><span class="span-turma">Número de alunos:</span>200</p>
-            <p><span class="span-turma">Período:</span>Integral</p>
-            <p><span class="span-turma">Concluído:</span>Não</p>
-          </div>
-          <div class="card-turma">
-            <h4 class="h4-turmas font-poppins">Curie</h4>
-            <p><span class="span-turma">Curso:</span>HTML e CSS</p>
-            <p><span class="span-turma">Início:</span>15/09/2022</p>
-            <p><span class="span-turma">Termino:</span>15/10/2022</p>
-            <p><span class="span-turma">Número de alunos:</span>180</p>
-            <p><span class="span-turma">Período:</span>Noturno</p>
-            <p><span class="span-turma">Concluído:</span>Não</p>
-          </div>
-          <div class="card-turma">
-            <h4 class="h4-turmas font-poppins">Zhenyi</h4>
-            <p><span class="span-turma">Curso:</span>HTML e CSS</p>
-            <p><span class="span-turma">Início:</span>01/11/2022</p>
-            <p><span class="span-turma">Termino:</span>01/01/2023</p>
-            <p><span class="span-turma">Número de alunos:</span>80</p>
-            <p><span class="span-turma">Período:</span>Integral</p>
-            <p><span class="span-turma">Concluído:</span>Não</p>
-          </div>
-          <div class="card-turma">
-            <h4 class="h4-turmas font-poppins">Clarke</h4>
-            <p><span class="span-turma">Curso:</span>HTML e CSS</p>
-            <p><span class="span-turma">Início:</span>04/07/2022</p>
-            <p><span class="span-turma">Termino:</span>04/09/2022</p>
-            <p><span class="span-turma">Número de alunos:</span>200</p>
-            <p><span class="span-turma">Período:</span>Noturno</p>
-            <p><span class="span-turma">Concluído:</span>Sim</p>
-          </div>
-          <div class="card-turma">
-            <h4 class="h4-turmas font-poppins">Blackwell</h4>
-            <p><span class="span-turma">Curso:</span>APIs Rest</p>
-            <p><span class="span-turma">Início:</span>20/03/2022</p>
-            <p><span class="span-turma">Termino:</span>20/06/2022</p>
-            <p><span class="span-turma">Número de alunos:</span>100</p>
-            <p><span class="span-turma">Período:</span>Integral</p>
-            <p><span class="span-turma">Concluído:</span>Sim</p>
-          </div>
-          <div class="card-turma">
-            <h4 class="h4-turmas font-poppins">Elion</h4>
-            <p><span class="span-turma">Curso:</span>APIs Rest</p>
-            <p><span class="span-turma">Início:</span>12/01/2022</p>
-            <p><span class="span-turma">Termino:</span>12/06/2022</p>
-            <p><span class="span-turma">Número de alunos:</span>200</p>
-            <p><span class="span-turma">Período:</span>Noturno</p>
-            <p><span class="span-turma">Concluído:</span>Sim</p>
-          </div>
-          <div class="card-turma">
-            <h4 class="h4-turmas">Burnell</h4>
-            <p><span class="span-turma">Curso:</span>APIs Rest</p>
-            <p><span class="span-turma">Início:</span>18/10/2022</p>
-            <p><span class="span-turma">Termino:</span>18/04/2023</p>
-            <p><span class="span-turma">Número de alunos:</span>90</p>
-            <p><span class="span-turma">Período:</span>Integral</p>
-            <p><span class="span-turma">Concluído:</span>Não</p>
-          </div>
-        </article>
+        <article class="cards-turmas" id="cards-turmas"></article>
       </section>
     </main>
     <footer class="footer">
