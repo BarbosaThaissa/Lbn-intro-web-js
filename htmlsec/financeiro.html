@@ -46,25 +46,56 @@
     <main class="main-adm">
       <nav id="nabar-adm">
         <ul class="ul-id-nabar">
-          <li><a href="./adm.html" class="a-adm-nav active-adm"> Turmas</a></li>
+          <li><a href="./adm.html" class="a-adm-nav"> Turmas</a></li>
           <li>
             <a href="./matricula.html" class="a-adm-nav"> Matriculas</a>
           </li>
           <li>
-            <a href="./financeiro.html" class="a-adm-nav"> Financeiro Alunos</a>
+            <a href="./financeiro.html" class="a-adm-nav active-adm">
+              Financeiro Alunos</a
+            >
           </li>
         </ul>
       </nav>
-      <section class="area-adm">
-        <div class="busca-adm">
-          <input
-            type="text"
-            id="btn-busca"
-            placeholder="Digite o nome da turma..."
-          /><button onclick="buscarTurma()">Buscar</button>
+      <section class="financeiro-sec">
+        <h3 class="font-poppins">Financeiro</h3>
+        <label for="curso" class="span-turma font-poppins">Curso</label>
+        <input
+          type="text"
+          id="curso"
+          name="curso"
+          placeholder="Nome do curso..."
+        />
+        <button class="btn-adicionar" onclick="addCarrinhoCursos()">adicionar</button>
+        <label for="n-parcelas" class="span-turma font-poppins"
+          >Número de parcelas</label
+        >
+        <input
+          type="number"
+          min="1"
+          max="13"
+          id="n-parcelas"
+          name="parcelas"
+          placeholder="Quantas parcelas?"
+        />
+        <button class="btn-adm-pages" onclick="parcelarCurso()">Ver valor</button>
+        <div id="financeiro-sec">
         </div>
-        <br />
-        <article class="cards-turmas" id="cards-turmas"></article>
+      </section>
+      <section class="relatorio">
+        <h3 class="font-poppins">Relatório Aluno(a)</h3>
+        <label for="name" class="span-turma font-poppins">Nome:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Digite o nome do aluno(a)..."
+        />
+        <button class="btn-adm-pages" onclick="relatorioEstudante()">
+          Buscar
+        </button>
+
+        <div id="relatorio-sec"></div>
       </section>
     </main>
     <footer class="footer">

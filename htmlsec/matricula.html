@@ -46,26 +46,54 @@
     <main class="main-adm">
       <nav id="nabar-adm">
         <ul class="ul-id-nabar">
-          <li><a href="./adm.html" class="a-adm-nav active-adm"> Turmas</a></li>
+          <li><a href="./adm.html" class="a-adm-nav"> Turmas</a></li>
           <li>
-            <a href="./matricula.html" class="a-adm-nav"> Matriculas</a>
+            <a href="./matricula.html" class="a-adm-nav active-adm">
+              Matriculas</a
+            >
           </li>
           <li>
             <a href="./financeiro.html" class="a-adm-nav"> Financeiro Alunos</a>
           </li>
         </ul>
       </nav>
-      <section class="area-adm">
-        <div class="busca-adm">
-          <input
-            type="text"
-            id="btn-busca"
-            placeholder="Digite o nome da turma..."
-          /><button onclick="buscarTurma()">Buscar</button>
-        </div>
-        <br />
-        <article class="cards-turmas" id="cards-turmas"></article>
+      <section class="matriculas" id="matri-sec">
+        <h3 class="font-poppins">Matrículas</h3>
+        <label for="name" class="span-turma font-poppins">Nome:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Digite seu nome..."
+        />
+        <label for="curso" class="span-turma font-poppins">Curso:</label>
+        <input
+          type="text"
+          id="curso"
+          name="curso"
+          placeholder="Digite nome do curso..."
+        />
+        <label for="turma" class="span-turma font-poppins">Turma:</label>
+        <input
+          type="text"
+          id="turma"
+          name="turma"
+          placeholder="Digite sua turma..."
+        />
+        <label for="parcelas" class="span-turma font-poppins"
+          >Número de parcelas:</label
+        >
+        <input
+          type="number"
+          id="parcelas"
+          name="parcelas"
+          placeholder="Quantas parcelas?"
+        />
+        <button class="btn-adm-pages" id="btn-matricula" onclick="matricular()">
+          Matrícular aluno(a)
+        </button>
       </section>
+      <section class="aluno-matri" id="aluno-matri"></section>
     </main>
     <footer class="footer">
       <a href="#" class="logo-footer"
