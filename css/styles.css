@@ -26,6 +26,7 @@
 
 a:hover {
   cursor: pointer;
+  transition: 0.5s;
   -webkit-transform: scale(1.03);
   text-decoration: underline;
   color: var(--green-act);
@@ -282,7 +283,7 @@ body {
 #nabar-adm {
   background-color: var(--black);
   color: var(--white);
-  width: 17vw;
+  width: 17%;
   padding-top: 2rem;
 }
 
@@ -295,7 +296,12 @@ body {
 }
 
 .a-adm-nav {
+  color: #707070;
+}
+
+.active-adm {
   color: var(--white);
+  text-decoration: none;
 }
 
 .area-adm {
@@ -366,6 +372,73 @@ body {
   font-weight: bold;
 }
 
+/* fianceiro */
+.financeiro-sec {
+ display: flex;
+ flex-direction: column;
+ padding: 5rem;
+ justify-content: center;
+ width: 41%;
+}
+
+.relatorio {
+  display: flex;
+ flex-direction: column;
+ padding: 5rem;
+ justify-content: center;
+ width: 41%;
+}
+
+.relatorio > h3, .financeiro-sec > h3 {
+  margin-bottom: 1.5rem;
+}
+
+.relatorio > .btn-adm-pages, .financeiro-sec > .btn-adm-pages {
+  display: block;
+  margin: 1.5rem 0 4.5rem 0;
+} 
+
+.btn-adicionar {
+  background-color: var(--black);
+  color: var(--white);
+  font-weight: bold;
+  border-radius: 8px;
+  height: 3.3vh;
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
+  width: 50%;
+  border: none;
+}
+
+.btn-adicionar:hover, .btn-adm-pages:hover {
+  cursor: pointer;
+  background-color: var(--green-act);
+  transition: 0.5s;
+  -webkit-transform: scale(1.03);
+}
+
+.btn-adm-pages {
+  background-color: var(--black);
+  color: var(--white);
+  font-weight: bold;
+  border-radius: 8px;
+  height: 4.3vh;
+  width: 80%;
+  border: none;
+}
+
+.relatorio > input, .financeiro-sec > input {
+  height: 3.1vh;
+  border: none;
+  width: 80%;
+  padding-left: 1rem;
+}
+
+/* matricula */
+.matriculas {}
+
+.aluno-matri {}
+
 /* contato */
 .contato-sec {
   background-color: var(--black);
@@ -409,6 +482,7 @@ body {
   background-color: var(--black);
   color: var(--yellow);
   cursor: pointer;
+  transition: 0.5s;
   -webkit-transform: scale(1.03);
 }
 
