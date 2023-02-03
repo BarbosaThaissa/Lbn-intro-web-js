@@ -1,32 +1,41 @@
-# Projeto de Introdução Web - JavaScript
+<h1 align="center">LabEscola</h1>
 
-## Enunciado
+<p aling="center">
+ <a href="#-tecnologia">Technology  |</a> 
+ <a href="#-projeto">Layout |</a> 
+ <a href="#-layout">Project |</a> 
+ <a href="#memo-liceça">License</a> 
+</p>
 
-Vamos começar nossa jornada no desenvolvimento web criando um sistema de escola de programação, porque aqui gostamos de metalinguagem!
-Este projeto será dividido em duas partes: JavaScript, e HTML+CSS. Por enquanto, vamos focar na parte de JavaScript, e em breve veremos HTML e CSS.
+<p aling="center">
+ <img alt="Licence" src="https://img.shields.io/static/v1?label=license&message=MIT&color=AA26&labelColor=000000">
+</p>
 
-## Requisitos
+<br>
 
-- [ ]  Possui array de estudantes
-- [ ]  Possui array de cursos
-- [ ]  Possui array de turmas
-- [ ]  Todos os arrays são arrays de objeto
-- [ ]  Possui função de parcelamento de curso
-- [ ]  Função de parcelamento de curso valida desconto para múltiplos cursos
-- [ ]  Possui função de reajuste de valores dos cursos
-- [ ]  Possui busca de cursos
-- [ ]  Possui busca de turmas
-- [ ]  Possui busca de estudantes
+## 💻 Project
+Live preview: https://barbosathaissa.github.io/Lbn-intro-web-js/
 
-### Extra:
-
-- [ ]  Possui função de matrícula
-- [ ]  Função de matrícula aceita múltiplos cursos
+Vamos começar nossa jornada no desenvolvimento web criando um sistema de escola de programação!
 
 
-## Entrega
-A entrega será feita na próxima parte do projeto, a de **HTML e CSS**. Nos vemos lá!
-Recomendamos que caso não lembre como funciona o processo de entrega, clique [**aqui**](https://github.com/labenuexercicios/instrucoes-entrega), e faça seu fork. A entrega do projeto completo será feita por um formulário que mandaremos para vocês ao terminarmos de ver todo o conteúdo de introdução ao desenvolvimento ao web.
+## 🎨 Layout
 
-Bom projeto para vocês!
+<p aling="center">
+ <img alt="photo project" src="./assets/foto2ex.png" width="100%">
+ <img alt="photo project" src="./assets/foto1ex.png" width="100%">
+</p>
 
+## 🚀 Tecnologias
+
+This project was developed with the following technology:
+
+- HTML and CSS
+- JavaScript
+- Git and Github
+
+## :memo: Licença
+
+This project is under the MIT license
+
+Made with 💜 by myself : [**My contact!**](mariathatha03@gmail.com)
